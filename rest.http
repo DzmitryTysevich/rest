@@ -1,0 +1,84 @@
+POST api/v.1/users HTTP/1.1
+Host: https://flowers.by
+Authorization: xxxxxx
+header name: create user-1
+Content-Type: application/json
+{
+  "id": 1,
+  "username": "administrator",
+  "firstName": "admin",
+  "lastName": "admin",
+  "email": "admin@google.com",
+  "password": "12345",
+  "phone": "+375293333333",
+  "userStatus": true
+}
+
+POST api/v.1/users HTTP/1.1
+Host: https://flowers.by
+header name: create user-2
+Content-Type: application/json
+{
+  "id": 2,
+  "username": "dimitru",
+  "firstName": "dzmitry",
+  "lastName": "tysevich",
+  "email": "dzmitry@google.com",
+  "password": "12345",
+  "phone": "+375292222222",
+  "userStatus": true
+}
+
+GET api/v.1/users/login?username=dimitru&password=12345 HTTP/1.1
+Host: https://flowers.by
+Accept: application/json
+
+GET api/v.1/users/2 HTTP/1.1
+Host: https://flowers.by
+
+DELETE api/v.1/users/2 HTTP/1.1
+Host: https://flowers.by
+Authorization: xxxxxxx
+
+POST api/v.1/flowersCatalog/bouquets HTTP/1.1
+Host: https://flowers.by
+Authorization: xxxxx
+header name: post weddingBouquet-1
+Content-Type: application/json
+{
+  "id": 1,
+  "category": {"id": 1, "name": "weddingBouquet"},
+  "name": "weddingBouquet-1",
+  "status": "available"
+}
+
+GET api/v.1/flowersCatalog/bouquets?category=1 HTTP/1.1
+Host: https://flowers.by
+
+DELETE api/v.1/flowersCatalog/bouquets/weddingBouquet-1 HTTP/1.1
+Host: https://flowers.by
+Authorization: xxxxx
+
+POST api/v.1/orders HTTP/1.1
+header name: post order
+Content-Type: application/json
+{
+  "id": 1,
+  "productId": 1,
+  "quantity": 2,
+  "shipDate": "2021-07-23T09:12:50.232Z",
+  "status": "placed",
+  "complete": true
+}
+
+DELETE api/v.1/orders/1 HTTP/1.1
+Host: https://flowers.by
+Content-Type: application/json
+{
+  "id": 1,
+  "productId": 1,
+  "quantity": 2,
+  "shipDate": "2021-07-23T10:50:50.232Z",
+  "status": "delivered",
+  "complete": true
+}
